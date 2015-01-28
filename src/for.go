@@ -25,4 +25,9 @@ func main() {
 		break
 	}
 
+	for {
+		fmt.Println("Infinite for (return ahead)")
+		return
+	}
+
 }
