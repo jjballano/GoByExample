@@ -32,7 +32,7 @@ func main() {
 	fmt.Println("Variables declared without a corresponding initialization are zero-valued => String: emptyString=",emptyString)
 	fmt.Println("Variables declared without a corresponding initialization are zero-valued => Boolean: initBool=",initBool)
 	fmt.Println("--")
-	f := "f := \"Value\" => Better way to declare variables"
+	f := "f := \"Value\" => Better way to declare and initialize variables"
 	fmt.Println(f)
 
 }
