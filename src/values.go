@@ -17,4 +17,5 @@ func main() {
 	fmt.Println("3 + 'Text' => Error (mismatched types int and String)")
 
 	fmt.Println("'Single quote' is _NOT_ allowed ")
+	fmt.Println("a variable can have nil value")
 }
