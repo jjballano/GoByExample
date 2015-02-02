@@ -10,7 +10,7 @@ func main() {
 	buffered := make(chan string, 2)
 
 	go func(){
-		fmt.Println("Program waits until channel is written")
+		fmt.Println("Program waits until channel is written, because it expects to read something")
 		messages <- "ping"
 
 		buffered <- "First"
@@ -21,7 +21,5 @@ func main() {
 	msg += <- buffered
 	msg += <- buffered
 
-	fmt.Println("Program waits until channels are read")
-	fmt.Println("For any reason, it doesnt need to wait for buffered channels")
 	fmt.Println(msg)
 }
