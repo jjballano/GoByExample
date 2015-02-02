@@ -2,10 +2,12 @@ package main
 
 import "fmt"
 
+//accepts a channel for sending values
 func ping(pings chan <- string, msg string) {
 	pings <- msg
 }
 
+//accepts a channel for receiving values and another for sending
 func pong(pings <-chan string, pongs chan<-string) {
 	msg := <-pings
 	pongs <- msg
