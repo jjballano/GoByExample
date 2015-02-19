@@ -15,7 +15,7 @@ func check(e error){
 }
 
 func main() {
-	fmt.Println("Read files.")
+	fmt.Println("===Read files===")
 	fmt.Println("/tmp/dat file must exists")
 	fmt.Println("ioutil.ReadFile(file) read the file to memory")
 	dat, err := ioutil.ReadFile("/tmp/dat")
@@ -58,4 +58,30 @@ func main() {
     b4, err := r4.Peek(5)
     check(err)
     fmt.Printf("5 bytes: %s\n", string(b4))
+
+    fmt.Println("===Write files===")
+    w1 := []byte("hello\ngo\n")
+    err = ioutil.WriteFile("/tmp/dat1", w1, 0644)
+    check(err)
+
+    fw, err := os.Create("/tmp/dat2")
+    check(err)
+    defer fw.Close()
+    fmt.Println(fw)
+
+    w2 := []byte{115, 111, 109, 101, 10}
+    nw2, err := fw.Write(w2)
+    check(err)
+    fmt.Printf("wrote %d bytes\n", nw2)
+
+	nw3, err := fw.WriteString("writes\n")
+    fmt.Printf("wrote %d bytes\n", nw3)
+
+    fw.Sync()
+
+    w := bufio.NewWriter(fw)
+    nw4, err := w.WriteString("buffered\n")
+    fmt.Printf("wrote %d bytes\n", nw4)
+
+    w.Flush()
 }
