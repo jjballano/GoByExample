@@ -38,4 +38,18 @@ func main() {
 
     p(then.Add(diff))
     p(then.Add(-diff))
+
+
+    p(" - epoch - ")
+    secs := now.Unix()
+    nanos := now.UnixNano()
+
+    millis := nanos / 1000
+
+    p(secs)
+    p(millis)
+    p(nanos)
+
+    p(time.Unix(secs,0)) //time from seconds
+    p(time.Unix(0,nanos)) //time from nanos
 }		
